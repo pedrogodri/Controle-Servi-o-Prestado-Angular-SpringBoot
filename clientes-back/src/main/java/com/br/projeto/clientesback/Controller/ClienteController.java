@@ -1,8 +1,7 @@
-package com.br.projeto.clientesback.Controller;
+package com.br.projeto.clientesback.controller; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,12 +49,12 @@ public class ClienteController {
             repository.delete(cliente);
             return Void.TYPE;
         })
-        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
     }
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void editar(@PathVariable Integer id, @RequestBody Cliente clienteAtt) {
+    public void editar(@PathVariable Integer id, @RequestBody @Valid Cliente clienteAtt) {
         repository
         .findById(id)
         .map(cliente -> {
@@ -64,6 +63,6 @@ public class ClienteController {
             repository.save(clienteAtt);
             return Void.TYPE;
         })
-        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
     }
 }
