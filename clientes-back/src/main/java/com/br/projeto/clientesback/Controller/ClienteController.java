@@ -1,5 +1,7 @@
 package com.br.projeto.clientesback.controller; 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,6 +31,11 @@ public class ClienteController {
     @Autowired
     public ClienteController(ClienteRepository repository) {
         this.repository = repository;
+    }
+
+    @GetMapping
+    public List<Cliente> obterTodos() {
+        return repository.findAll();
     }
 
     @PostMapping
