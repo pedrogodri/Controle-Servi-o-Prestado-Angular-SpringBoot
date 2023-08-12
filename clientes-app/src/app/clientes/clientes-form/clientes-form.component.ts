@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cliente } from '../model/cliente';
 import { ClientesService } from 'src/app/service/clientes.service';
 
@@ -12,7 +13,7 @@ export class ClientesFormComponent {
   sucesso: boolean = false;
   errors?: String[];
 
-  constructor(private service: ClientesService) {
+  constructor(private service: ClientesService, private router: Router) {
     this.cliente = new Cliente();
   }
 
@@ -28,5 +29,9 @@ export class ClientesFormComponent {
         this.errors = errorResponse.error.errors;
       }
     );
+  }
+
+  voltarListagem(): void {
+    this.router.navigate(['/clientes-lista'])
   }
 }
