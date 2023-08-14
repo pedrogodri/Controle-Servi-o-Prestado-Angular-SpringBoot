@@ -1,5 +1,5 @@
+import { Cliente } from './../clientes/model/cliente';
 import { Injectable } from '@angular/core';
-import { Cliente } from '../clientes/model/cliente';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -18,6 +18,10 @@ export class ClientesService {
 
   atualizar(cliente: Cliente): Observable<any> {
     return this.http.put<Cliente>(`${this.url}/${cliente.id}`, cliente);
+  }
+
+  deletar(cliente:Cliente): Observable<any> {
+    return this.http.delete<any>(`${this.url}/${cliente.id}`);
   }
 
   getClientes(): Observable<Cliente[]> {
