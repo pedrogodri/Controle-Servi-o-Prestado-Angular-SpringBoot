@@ -1,6 +1,9 @@
 package com.br.projeto.clientesback.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,7 +16,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Servico {
+public class ServicoPrestado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +29,8 @@ public class Servico {
     private Cliente cliente;
     @Column
     private BigDecimal valor;
+
+    @Column
+    @JsonFormat(pattern = "dd/MM/yyy")
+    private LocalDate data;
 }
