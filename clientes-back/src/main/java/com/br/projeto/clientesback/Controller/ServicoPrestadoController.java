@@ -1,4 +1,4 @@
-package com.br.projeto.clientesback.Controller;
+package com.br.projeto.clientesback.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -27,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("api/servicos-prestados")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class ServicoPrestadoController {
 
 
