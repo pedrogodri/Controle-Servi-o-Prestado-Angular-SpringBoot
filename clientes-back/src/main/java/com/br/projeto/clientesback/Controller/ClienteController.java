@@ -1,4 +1,4 @@
-package com.br.projeto.clientesback.Controller;
+package com.br.projeto.clientesback.controller;
 
 import java.util.List;
 
@@ -23,7 +23,6 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/clientes")
-@CrossOrigin(origins = "*")
 public class ClienteController {
 
     private final ClienteRepository repository;

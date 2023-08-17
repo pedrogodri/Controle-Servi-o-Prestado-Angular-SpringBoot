@@ -1,4 +1,4 @@
-package com.br.projeto.clientesback.Controller;
+package com.br.projeto.clientesback.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -56,7 +56,7 @@ public class ServicoPrestadoController {
     @GetMapping
     public List<ServicoPrestado> pesquisar(
         @RequestParam(value = "nome", required = false, defaultValue = "") String nome, 
-        @RequestParam(value = "mes", required = false) Integer mes) {
+        @RequestParam(value = "me s", required = false) Integer mes) {
         return repository.findByNomeClienteAndMes("%" + nome + "%", mes);
     }
 }

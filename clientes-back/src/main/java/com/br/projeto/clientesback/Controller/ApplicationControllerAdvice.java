@@ -1,4 +1,4 @@
-package com.br.projeto.clientesback.Controller;
+package com.br.projeto.clientesback.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
