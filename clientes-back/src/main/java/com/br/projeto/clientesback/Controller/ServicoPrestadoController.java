@@ -22,6 +22,7 @@ import com.br.projeto.clientesback.repository.ClienteRepository;
 import com.br.projeto.clientesback.repository.ServicoPrestadoRepository;
 import com.br.projeto.clientesback.util.BigDecimalConverter;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -37,7 +38,7 @@ public class ServicoPrestadoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ServicoPrestado salvar(@RequestBody ServicoPrestadoDTO dto) {
+    public ServicoPrestado salvar(@RequestBody @Valid ServicoPrestadoDTO dto) {
         LocalDate data = LocalDate.parse(dto.getData(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         Integer idCliente = dto.getIdCliente();
         Cliente cliente = 
