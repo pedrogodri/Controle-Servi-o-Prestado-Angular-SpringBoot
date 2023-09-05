@@ -6,10 +6,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data@NoArgsConstructor
+@Data
+@NoArgsConstructor
+@Getter
+@Setter
 public class Usuario {
 
     @Id
@@ -17,8 +22,8 @@ public class Usuario {
     private Integer id;
 
     @Column(unique = true, name = "login")
-    private String username;
+    private String login;
 
     @Column(name = "senha")
-    private String password;
+    private String senha;
 }
